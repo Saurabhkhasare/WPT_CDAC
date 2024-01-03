@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bank Account Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Bank Account Details</h2>
+
+    <form id="accountForm">
+        <div class="form-group">
+            <label for="accountId">Account ID:</label>
+            <input type="text" class="form-control" id="accountId" required>
+        </div>
+        <div class="form-group">
+            <label for="accountName">Account Name:</label>
+            <input type="text" class="form-control" id="accountName" required>
+        </div>
+        <div class="form-group">
+            <label for="accountType">Account Type:</label>
+            <input type="text" class="form-control" id="accountType" required>
+        </div>
+        <div class="form-group">
+            <label for="balance">Balance (Rs):</label>
+            <input type="number" class="form-control" id="balance" required>
+        </div>
+        <div class="form-group">
+            <label for="creationDate">Creation Date:</label>
+            <input type="date" class="form-control" id="creationDate" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="saveAccountInfo()">Save Info</button>
+        <button type="button" class="btn btn-success ml-2" onclick="displayAccountInfo()">Account Info</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript array to store account details
+    var accountDetailsArray = [];
+
+    // Function to validate and save account information
+    function saveAccountInfo() {
+        // Get form values
+        var accountId = $('#accountId').val();
+        var accountName = $('#accountName').val();
+        var accountType = $('#accountType').val();
+        var balance = $('#balance').val();
+        var creationDate = $('#creationDate').val();
+
+        // Validate form fields
+        if (accountId && accountName && accountType && !isNaN(balance) && balance >= 5000 && creationDate) {
+            // Create JavaScript object
+            var accountInfo = {
+                accountId: accountId,
+                accountName: accountName,
+                accountType: accountType,
+                balance: balance,
+                creationDate: creationDate
+            };
+
+            // Add account information to the array
+            accountDetailsArray.push(accountInfo);
+
+            // Clear form fields
+            $('#accountId').val('');
+            $('#accountName').val('');
+            $('#accountType').val('');
+            $('#balance').val('');
+            $('#creationDate').val('');
+
+            alert('Account information saved successfully!');
+        } else {
+            alert('Please fill in all fields, ensure balance is numeric and >= Rs 5000, and select a valid creation date.');
+        }
+    }
+
+    // Function to display account information in the console
+    function displayAccountInfo() {
+        console.log('Account Details:');
+        console.log(accountDetailsArray);
+    }
+</script>
+
+</body>
+</html>
