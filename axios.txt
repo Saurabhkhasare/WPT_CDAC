@@ -1,0 +1,34 @@
+ Create a HTML5 form to accept Bank Account details:
+• Use Javascript/Jquery to validate the form:
+o All fields are mandatory
+o Balance must be numeric and cannot be below Rs 5000
+• Use Bootstrap to style this form.
+• When user clicks on “Save info” button, the account information on form must be converted into a Javascript object and stored
+into an Javascriptarray.
+• When user clicks on “Account Info” button, all account details stored in array must be displayed in console.
+•I want Account Id, Account field , Account Name, Account Type, Balance, Creation date in my form
+
+
+
+REACT JS:REACT JS:REACT JS:REACT JS:
+Using the Account array created earlier, use React to create a component AccountComponent that will display account data in a neat
+HTML table. Pass account information from App component into Account component. Output should be in table format.
+
+
+
+back end----> 
+1.npm init -y
+2.npm install express.
+3.add server.js file.
+3.add const cors = require('cors'); 
+      app.use(cors());in server.js
+4.npm install cors body-parser
+5.npm install
+
+
+
+front end---->
+1.npx create-create-react myapp
+1.accountform.js
+2.accountcomponent.js
+
